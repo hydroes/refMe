@@ -1,0 +1,28 @@
+{
+  "name": "refme-test",
+  "version": "0.0.1",
+  "authors": [
+    "Brian Gouws <briangouws@gmail.com>"
+  ],
+  "description": "RefMe test",
+  "main": "index.html",
+  "keywords": [
+    "RefMe",
+    "Shopping",
+    "Cart"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.13",
+    "jquery-1.11.2.min": "http://code.jquery.com/jquery-1.11.2.min.js",
+    "bootstrap": "~3.3.2"
+  }
+}
