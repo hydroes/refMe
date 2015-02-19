@@ -16,13 +16,28 @@
     <![endif]-->
   </head>
   <body>
-      <div class="container-fluid">
+      <div class="container-fluid" ng-controller="ShoppingCartController">
           <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                   <h1>Hello RefMe, let's do some shopping!</h1>
               </div>
-              <div class="col-md-6">.col-md-6</div>
-              <div class="col-md-6">.col-md-6</div>
+          </div>
+          <div class="row">
+              <div class="col-md-2">
+                  <h2>Items</h2>
+                  <div ng-repeat="(key, item) in availableItems">
+                      <a ng-click="addToCart(item, key)">{{item.name}} - {{item.cost | currency:"£"}}</a>
+                  </div>
+                  <li ng-show="!availableItems.length">No available cart items</li>
+              </div>
+              <div class="col-md-2">
+                  <h2>Shopping Cart Items</h2>
+                  <div ng-repeat="(key, cartItem) in shoppingCartItems">
+                      <span>{{cartItem.name}}</span> ({{cartItem.cost | currency:"£"}}) <input type="number" name="quantity" min="1" max="5" ng-model="cartItem.quantity" ng-change="calculateTotal()"> - <a ng-click="removeFromCart(cartItem, key)">remove</a>
+                  </div>
+                  <strong ng-show="shoppingCartItems.length">Cart Total: {{cartTotal | currency:"£"}}</strong>
+                  <i ng-show="!shoppingCartItems.length">Your cart is empty</i>
+              </div>
           </div>
       </div>
 
@@ -30,7 +45,8 @@
     <!-- Here I the frameworks of my choice.
     Of course in a real-world scenario I would combine all of these files into
     1 file app.js with an asynch attribute for download speed. I would accomplish
-    this with grunt or gulp task management.
+    this with grunt or gulp task management OR load certain libs from their
+    respective CDN's.
     -->
     <script src="assets/bower_components/angular/angular.min.js"></script>
     <script src="assets/bower_components/jquery-1.11.2.min/index.js"></script>
