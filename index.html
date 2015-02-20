@@ -28,7 +28,7 @@
                   <div ng-repeat="(key, item) in availableItems">
                       <a ng-click="addToCart(item, key)">{{item.name}} - {{item.cost | currency:"£"}}</a>
                   </div>
-                  <li ng-show="!availableItems.length">No available cart items</li>
+                  <i ng-show="!availableItems.length">No available items</i>
               </div>
               <div class="col-md-2">
                   <h2>Shopping Cart Items</h2>

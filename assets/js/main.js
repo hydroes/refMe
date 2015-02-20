@@ -2,10 +2,6 @@
 
 var app = angular.module('refMeApp', []);
 
-app.service('ShoppingCartService', [function() {
-
-}]);
-
 /**
 * In the real world I would write a test for this service!
 */
@@ -28,7 +24,6 @@ app.service('ShoppingCartService', [function() {
     };
 
     var getItems = function() {
-        console.log('_cartItems', _cartItems)
         return _cartItems;
     };
 
